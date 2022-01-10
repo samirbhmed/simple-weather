@@ -1,0 +1,32 @@
+<div class="container">
+    <ion-card>
+        <ion-card-header style="border-bottom: solid 1px lightgray;">
+            <ion-card-title style="font-weight: 500 !important;">Next 5 days</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="weather-container" scrollX="true">
+                <div *ngFor="let item of dailyWeather.list">
+                    <ion-row style="border-bottom: solid 1px lightgray;">
+                        <ion-col size="3">
+                            <ion-avatar>
+                                <img src="{{'http://openweathermap.org/img/wn/' + item.weather[0].icon + '@2x.png'}}">
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col size="6">
+                            <div class="description">
+                                <p>{{item.dt*1000 | date:'EE, MMM d'}}</p>
+                                <p>{{item.weather[0].description}}</p>
+                            </div>
+                        </ion-col>
+                        <ion-col size="3">
+                            <div class="min-max-temp">
+                                <span class="temp-value">{{item.temp.max - kelvinValue | number : '1.0-0'}}°</span>
+                                <span class="temp-value">{{item.temp.min - kelvinValue | number : '1.0-0'}}°</span>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <ion-card>
+        <ion-card-header style="border-bottom: solid 1px lightgray;">
+            <ion-card-title style="font-weight: 500 !important;">Next hours</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+            <div class="weather-container" scrollX="true">
+                <div *ngFor="let item of hourlyWeather.list">
+                    <div class="weather-info">
+                        <span class="temp-value">{{item.main.temp - kelvinValue | number : '1.0-0'}}°</span>
+                        <span class="percentage">{{item.main.humidity}}%</span>
+                        <ion-avatar>
+                            <img src="{{'http://openweathermap.org/img/wn/' + item.weather[0].icon + '@2x.png'}}">
+                        </ion-avatar>
+                        <span class="time">{{item.dt_txt | date: 'h:mm a'}}</span>
+                    </div>
+                </div>
+            </div>
+        </ion-card-content>
+    </ion-card>
+</div>

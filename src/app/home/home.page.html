@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-buttons slot="secondary">
+            <ion-button routerLink="/search">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Simple Weather
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-segment (ionChange)="segmentChanged($event)" value="Rio de Janeiro">
+            <ion-segment-button value="Rio de Janeiro">
+                <ion-label>Rio de Janeiro</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Beijing">
+                <ion-label>Beijing</ion-label>
+            </ion-segment-button>
+            <ion-segment-button value="Los Angeles">
+                <ion-label>Los Angeles</ion-label>
+            </ion-segment-button>
+        </ion-segment>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div>
+        <app-hourly-forecast *ngIf="hourlyWeather" [data]="hourlyWeather"></app-hourly-forecast>
+        <app-daily-forecast *ngIf="dailyWeather" [data]="dailyWeather"></app-daily-forecast>
+    </div>
+</ion-content>

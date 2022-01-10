@@ -1,0 +1,18 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-searchbar showCancelButton="focus" placeholder="Enter city name" [formControl]="searchField" debounce="300"></ion-searchbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="search-result" *ngIf="!hideSearchResult">
+        <div *ngFor="let item of cities | filterCities:searchField.value:10">
+            <p (click)="loadData(item.city_name)" style="color: gray;">
+                <ion-icon name="search" style="margin-right: 10px;"></ion-icon> {{item.city_name}}</p>
+        </div>
+    </div>
+    <div>
+        <app-hourly-forecast *ngIf="hourlyWeather" [data]="hourlyWeather"></app-hourly-forecast>
+        <app-daily-forecast *ngIf="dailyWeather" [data]="dailyWeather"></app-daily-forecast>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+.weather-container {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.weather-info {
+    width: 100px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 10px;
+    gap: 10px;
+    position: relative;
+}
+
+.weather-info:after {
+    content: '';
+    position: absolute;
+    right: 0px;
+    top: 25%;
+    height: 50%;
+    border-right: 1px solid lightgray;
+}
+
+.temp-value {
+    color: black;
+    font-weight: 700;
+}
+
+.percentage {
+    color: rgb(51, 51, 247);
+    font-weight: 700;
+}
+
+.time {
+    font-weight: 800;
+}
